@@ -6,10 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppProvider } from "@/store/AppStore";
 import { RequireAdmin } from "@/components/auth/RequireAdmin";
 
-
 import Auth from "./pages/Auth";
 import ResetPassword from "./pages/ResetPassword";
-import NotFound from "./pages/NotFound.tsx";
+import NotFound from "./pages/NotFound";
 import ThankYou from "./pages/ThankYou";
 import SupplierProfile from "./pages/SupplierProfile";
 
@@ -61,64 +60,4 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner position="top-center" dir="rtl" />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/thank-you" element={<ThankYou />} />
-            <Route path="/suppliers/:supplierId" element={<SupplierProfile />} />
-
-            {/* Resident */}
-            <Route path="/resident" element={<ResidentDashboard />} />
-            <Route path="/resident/projects" element={<ProjectsList />} />
-            <Route path="/resident/categories" element={<CategoriesList />} />
-            <Route path="/resident/categories/:categoryId" element={<CategorySuppliers />} />
-            <Route path="/resident/deals" element={<DealsList />} />
-            <Route path="/resident/deals/:dealId" element={<DealDetail />} />
-            <Route path="/resident/profile" element={<ResidentProfile />} />
-            <Route path="/resident/profile/edit" element={<ResidentProfileEdit />} />
-            <Route path="/resident/notifications" element={<Notifications />} />
-            <Route path="/resident/my-offers" element={<MyOffers />} />
-
-            {/* Supplier */}
-            <Route path="/supplier" element={<SupplierDashboard />} />
-            <Route path="/supplier/profile/edit" element={<SupplierProfileEdit />} />
-            <Route path="/supplier/offers" element={<SupplierOffers />} />
-            <Route path="/supplier/offers/new" element={<OfferEditor />} />
-            <Route path="/supplier/leads" element={<SupplierLeads />} />
-            <Route path="/supplier/reviews" element={<SupplierReviews />} />
-
-            {/* Admin — hidden, gated */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin-login" element={<AdminLogin />} />
-            <Route path="/admin" element={adminRoute(<AdminDashboard />)} />
-            <Route path="/admin/projects" element={adminRoute(<AdminProjects />)} />
-            <Route path="/admin/suppliers" element={adminRoute(<AdminDbSuppliers />)} />
-            <Route path="/admin/suppliers-mock" element={adminRoute(<AdminSuppliers />)} />
-            <Route path="/admin/residents" element={adminRoute(<AdminResidents />)} />
-            <Route path="/admin/categories" element={adminRoute(<AdminCategories />)} />
-            <Route path="/admin/deals" element={adminRoute(<AdminDeals />)} />
-            <Route path="/admin/deposits" element={adminRoute(<AdminDeposits />)} />
-            <Route path="/admin/payment-settings" element={adminRoute(<AdminPaymentSettings />)} />
-            <Route path="/admin/regions" element={adminRoute(<AdminRegions />)} />
-            <Route path="/admin/users" element={adminRoute(<AdminUsers />)} />
-            <Route path="/admin/settings" element={adminRoute(<AdminSettings />)} />
-            <Route path="/admin/suppliers/:supplierId/areas" element={adminRoute(<AdminSupplierAreas />)} />
-            <Route path="/admin/suppliers/:supplierId/media" element={adminRoute(<AdminSupplierMedia />)} />
-            <Route path="/admin/db-suppliers" element={adminRoute(<AdminDbSuppliers />)} />
-            <Route path="/admin/stats" element={adminRoute(<AdminStats />)} />
-
-            {/* Payment callbacks */}
-            <Route path="/payment/success" element={<PaymentSuccess />} />
-            <Route path="/payment/cancel" element={<PaymentCancel />} />
-
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </AppProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+        <Browser
