@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppProvider } from "@/store/AppStore";
 import { RequireAdmin } from "@/components/auth/RequireAdmin";
 
-import Landing from "./pages/Landing";
+
 import Auth from "./pages/Auth";
 import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound.tsx";
