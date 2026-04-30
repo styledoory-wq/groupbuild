@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GroupBuild — Premium real-estate design system
+   Palette: navy / gold / cream. Heebo Hebrew RTL.
+   All colors HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cream surface */
+    --background: 42 33% 96%;          /* #F8F6F1 */
+    --foreground: 217 56% 13%;         /* navy text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 217 56% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 56% 13%;
+
+    /* Navy primary */
+    --primary: 217 56% 13%;            /* #0F1E35 */
+    --primary-foreground: 42 33% 96%;
+    --primary-soft: 217 49% 21%;       /* #1A2F4E */
+
+    /* Gold secondary */
+    --secondary: 44 53% 54%;           /* #C8A84B */
+    --secondary-foreground: 217 56% 13%;
+    --gold: 44 53% 54%;
+    --gold-light: 44 73% 66%;          /* #E8C96A */
+    --gold-foreground: 217 56% 13%;
+
+    --muted: 40 24% 92%;
+    --muted-foreground: 217 18% 38%;
+
+    --accent: 44 53% 54%;
+    --accent-foreground: 217 56% 13%;
+
+    --success: 145 49% 32%;            /* #2A7A4C */
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 38 18% 88%;              /* softer hairline */
+    --input: 38 18% 88%;
+    --ring: 44 53% 54%;
+
+    --radius: 0.875rem;
+
+    /* Gradients — toned-down, editorial */
+    --gradient-hero: linear-gradient(160deg, hsl(217 58% 12%) 0%, hsl(217 50% 18%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(44 53% 54%) 0%, hsl(44 60% 60%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-navy-deep: linear-gradient(160deg, hsl(217 60% 10%) 0%, hsl(217 50% 16%) 100%);
+
+    /* Shadows — whisper-soft */
+    --shadow-soft: 0 1px 2px hsl(217 56% 13% / 0.03), 0 2px 8px -4px hsl(217 56% 13% / 0.04);
+    --shadow-card: 0 1px 3px hsl(217 56% 13% / 0.04), 0 4px 16px -8px hsl(217 56% 13% / 0.06);
+    --shadow-elevated: 0 8px 28px -12px hsl(217 56% 13% / 0.12);
+    --shadow-gold: 0 4px 16px -8px hsl(44 53% 54% / 0.25);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    direction: rtl;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Heebo', system-ui, -apple-system, sans-serif;
+    font-feature-settings: "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior-y: none;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-bold tracking-tight;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .gb-card {
+    @apply bg-card rounded-2xl border border-border;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .gb-card-flat {
+    @apply bg-card rounded-2xl border border-border;
+    box-shadow: none;
+  }
+
+  .gb-hero {
+    background: var(--gradient-hero);
+    @apply text-primary-foreground;
+  }
+
+  .gb-gold-text {
+    @apply text-secondary;
+  }
+
+  .gb-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .gb-divider-gold {
+    @apply h-[2px] w-12 rounded-full;
+    background: var(--gradient-gold);
+  }
+
+  /* Hide scrollbar but keep scroll for category strip */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 1rem);
+  }
+}
