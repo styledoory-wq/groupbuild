@@ -60,4 +60,4 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner position="top-center" dir="rtl" />
-        <Browser
+        <BrowserRouter>
